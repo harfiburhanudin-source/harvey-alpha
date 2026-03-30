@@ -1,36 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will you be my Valentine? 💕</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Semangat UTS!</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s ease;
+    }
+
+    /* TEXT AUTO TYPE */
+    #typedText {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* COFFEE IMAGE */
+    #coffee {
+        width: 140px;
+        animation: wiggle 1.2s infinite ease-in-out;
+        margin-bottom: 20px;
+    }
+
+    @keyframes wiggle {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(4deg); }
+        50% { transform: rotate(-4deg); }
+        75% { transform: rotate(4deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    /* BUTTON */
+    #btn {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        background: #ffbd59;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+        position: absolute;
+    }
+
+</style>
 </head>
 <body>
-    <div class="hearts-bg"></div>
 
-    <div class="container">
-        <h1>Will you be my Valentine? 💕</h1>
+<div id="typedText"></div>
 
-        <div class="gif-container">
-            <img id="cat-gif" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif" alt="cute character">
-        </div>
+<!-- GAMBAR ES KOPI -->
+<img id="coffee" src="https://i.imgur.com/1QeZ7hG.png">
 
-        <div class="buttons">
-            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
-            <button id="no-btn" onclick="handleNoClick()">No</button>
-        </div>
-        <div id="tease-toast"></div>
-    </div>
+<button id="btn">Semangat UTS!</button>
 
-    <audio id="bg-music" loop autoplay muted>
-        <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
-    </audio>
+<!-- SUARA POP -->
+<audio id="popSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+<script>
+/* ----------- FITUR #6: TYPEWRITER TEXT ----------- */
+const text = "Semangat UTS yaaa! Kamu pasti bisa 🤝📚";
+let index = 0;
 
-    <script src="script.js"></script>
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("typedText").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 60);
+    }
+}
+typeWriter();
+
+/* ----------- FITUR #5: RANDOM BG COLOR ----------- */
+function randomBg() {
+    const color = `hsl(${Math.random() * 360}, 70%, 80%)`;
+    document.body.style.background = color;
+}
+
+/* ----------- FITUR #3: POP SOUND ----------- */
+const popSound = document.getElementById("popSound");
+
+/* ----------- FITUR #10: TOMBOL LARI REAKTIF ----------- */
+const btn = document.getElementById("btn");
+
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 150);
+    btn.style.left = `${x}px`;
+    btn.style.top = `${y}px`;
+}
+
+btn.addEventListener("mouseover", () => {
+    moveButton();          // tombol kabur
+    randomBg();            // ganti background
+    popSound.play();       // bunyi pop
+});
+
+/* Klik tombol tetap bunyi + ganti warna */
+btn.addEventListener("click", () => {
+    popSound.play();
+    randomBg();
+});
+</script>
+
 </body>
 </html>
