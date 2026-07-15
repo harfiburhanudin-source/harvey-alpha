@@ -255,5 +255,9 @@ box-shadow:0 10px 30px rgba(0,0,0,.2);
 
 </div>
 `;
+const bgMusic = document.getElementById("bgMusic");
 
+window.addEventListener("pointerdown", () => {
+    bgMusic.play().catch(() => {});
+}, { once: true });
 }
