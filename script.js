@@ -202,3 +202,4 @@ function startConfetti() {
 
   requestAnimationFrame(tick);
 }
+const endingImage = document.getElementById("endingImage");
