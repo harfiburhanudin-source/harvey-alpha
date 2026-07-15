@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>do u miss me? 🥺</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- floating hearts background -->
+  <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+
+  <!-- ===== SCREEN 1 : QUESTION ===== -->
+  <main class="screen screen--question" id="screenQuestion">
+    <div class="card">
+      <div class="character" id="character" aria-hidden="true">
+        <div class="character__face">
+          <div class="character__blush left"></div>
+          <div class="character__blush right"></div>
+          <div class="character__eye left"></div>
+          <div class="character__eye right"></div>
+          <div class="character__mouth"></div>
+        </div>
+      </div>
+
+      <h1 class="question">do u miss me?</h1>
+      <p class="hint" id="hint">psst… coba klik salah satu tombol di bawah 👇</p>
+
+      <div class="btn-row">
+        <button class="btn btn--yes" id="btnYes" type="button" disabled>
+          <span id="yesLabel">yes</span>
+        </button>
+        <button class="btn btn--no" id="btnNo" type="button">
+          no
+        </button>
+      </div>
+
+      <p class="progress" id="progress"></p>
+    </div>
+  </main>
+
+  <!-- ===== SCREEN 2 : ENDING ===== -->
+  <section class="screen screen--ending" id="screenEnding" hidden>
+    <canvas id="confetti"></canvas>
+    <div class="ending-card">
+      <div class="ending-content">
+        <div class="qr-wrap">
+          <img src="images/qr.png" alt="QR code" class="qr-img">
+        </div>
+        <div class="ending-text">
+          <p class="ending-eyebrow">scan here 👉</p>
+          <h2 class="ending-title">dear birthday girl,<br>i love u</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
