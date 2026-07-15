@@ -203,3 +203,26 @@ function startConfetti() {
   requestAnimationFrame(tick);
 }
 const endingImage = document.getElementById("endingImage");
+
+// ===== FORCE SHOW QR =====
+function forceShowQR() {
+    const ending = document.getElementById("screenEnding");
+
+    const qr = document.createElement("img");
+    qr.src = "images/qr.png";
+    qr.style.position = "fixed";
+    qr.style.bottom = "20px";
+    qr.style.right = "20px";
+    qr.style.width = "140px";
+    qr.style.background = "#fff";
+    qr.style.padding = "10px";
+    qr.style.borderRadius = "20px";
+    qr.style.boxShadow = "0 10px 30px rgba(0,0,0,.2)";
+    qr.style.zIndex = "99999";
+
+    qr.onerror = () => {
+        console.log("QR gagal dimuat!");
+    };
+
+    ending.appendChild(qr);
+}
