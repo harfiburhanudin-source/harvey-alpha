@@ -334,7 +334,7 @@ body{
 }
 
 #qrImage{
-    width:180px;
+    width:120px;
     max-width:70%;
     border-radius:15px;
     box-shadow:0 10px 25px rgba(0,0,0,.15);
