@@ -226,3 +226,34 @@ function forceShowQR() {
 
     ending.appendChild(qr);
 }
+function goToEnding() {
+
+document.body.innerHTML = `
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#fff4f8;
+flex-direction:column;
+font-family:sans-serif;
+">
+
+<h1 style="color:#e5417f">
+happy birthday ❤️
+</h1>
+
+<img
+src="images/qr.png"
+style="
+width:120px;
+background:white;
+padding:15px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+">
+
+</div>
+`;
+
+}
